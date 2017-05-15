@@ -17,27 +17,24 @@ function loadButtons () {
 
 	// WHEN AN ANIMAL BUTTON IS CLICKED AN AJAX QUERY RETURNS JSON RESULTS AND GIFS ARE DISPLAYED ON SCREEN
 
-$('.buttons').on("click",'.animal',function() {
-	// alert("clicked");
+$(document).on("click",'.animal',function() {
 	$('.loadGifs').empty();
 	var searchTerm = $(this).attr("data-name");
-	// console.log(searchTerm);
 	var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=9&q=" + searchTerm;
-	// console.log(queryURL);
 	$.ajax({
 	url: queryURL,
 	method: "GET"
 	}).done(function(response) {
-		// console.log(response);
 		for (var j = 0; j < response.data.length; j++) {	
 			var animatedSource = response.data[j].images.downsized.url;
 			var stillSource = response.data[j].images.downsized_still.url;
 			var rating = response.data[j].rating;
-			// console.log(source);
-			var ratingsAdd = $('<h5>Rating: ' + rating + '</h5>');
-			$('.loadGifs').append(ratingsAdd);
-			var gifsToAdd = $('<img>').attr({"src":stillSource, "data-still":stillSource, "data-animate":animatedSource, "data-state":"still"}).addClass("gifs");
-			$('.loadGifs').append(gifsToAdd);
+			var gifDiv = $('<div class="col-md-4 gifDiv">');
+			$('.loadGifs').append(gifDiv);
+			var ratingsAdd = $('<h5 class=row >Rating: ' + rating + '</h5>');
+			$(gifDiv).append(ratingsAdd);
+			var gifsToAdd = $('<img class=row >').attr({"src":stillSource, "data-still":stillSource, "data-animate":animatedSource, "data-state":"still"}).addClass("gifs");
+			$(gifDiv).append(gifsToAdd);
 		}
 	});
 });
@@ -47,7 +44,6 @@ $('.buttons').on("click",'.animal',function() {
    // TOGGLE PLAY/PAUSE OF GIFS WHEN CLICKED ON
 
 $(document).on("click", ".gifs", function() { // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-      // alert("clicked");
       var state = $(this).attr("data-state");
       if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
@@ -63,11 +59,10 @@ $(document).on("click", ".gifs", function() { // The attr jQuery method allows u
 	// A NEW ANIMAL CAN BE SUBMITTED VIA THE FORM INPUT
 
 $('.addAnimal').on("click", function(event) {
-	event.preventDefault();
+	event.preventDefault();							//prevents screen refresh, a default action of submit button
 	var addAnimal = $('#animalText').val().trim();
-	// console.log(addAnimal);
 	animals.push(addAnimal);
-	// console.log(animals);
+	document.getElementById('animalText').value="";    //clears the text box when submit button is clicked
 	loadButtons();
 });
 
