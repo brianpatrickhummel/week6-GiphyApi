@@ -1,0 +1,19 @@
+* {
+	border-style: border-box;
+}
+
+
+
+.btn {
+	margin: 3px;
+}
+
+.gifs {
+	margin: 10px;
+	max-width: 200px;
+}
+
+h5 {
+	margin: 10px;
+	max-width: 200px;
+}
