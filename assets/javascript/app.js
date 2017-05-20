@@ -1,5 +1,5 @@
 
-var animals = ["snow monkey", "baboon", "lemur", "orangutan", "gorilla", "chimpanzee", "marmoset", "tamarin", "howler monkey", "spider monkey", "macaque", "langur", "gibbon"];
+var animals = ["snow monkey", "baboon", "lemur", "orangutan", "gorilla", "chimpanzee", "marmoset", "tamarin", "howler monkey","langur", "spider monkey", "macaque", "gibbon"];
 
 
 
@@ -8,7 +8,7 @@ var animals = ["snow monkey", "baboon", "lemur", "orangutan", "gorilla", "chimpa
 function loadButtons () {
 	$(".animal").remove();
 	for (var i = 0; i < animals.length; i++) {
-		var button = $('<button>').addClass("btn btn-primary animal").attr({"data-name": animals[i], "type": "button"}).text(animals[i]);
+		var button = $('<button>').addClass("btn btn-primary animal").attr({"data-name": animals[i], "type": "button"}).html('<p class=animalText>' + animals[i] + '</p>');
 		$('.buttons').append(button);
 	}
 }
@@ -62,8 +62,8 @@ $('.addAnimal').on("click", function(event) {
 	event.preventDefault();							//prevents screen refresh, a default action of submit button
 	var addAnimal = $('#animalText').val().trim();
 	animals.push(addAnimal);
-	document.getElementById('animalText').value="";    //clears the text box when submit button is clicked
-	loadButtons();
+	$('#animalText').val("");    //clears the text box when submit button is clicked
+	loadButtons(); 
 });
 
 

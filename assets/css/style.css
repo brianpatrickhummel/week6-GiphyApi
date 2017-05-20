@@ -1,9 +1,21 @@
 * {
 	border-style: border-box;
+	font-family: 'Kano';
+}
+
+@font-face {
+  font-family: 'Kano';
+  src: url('../fonts/Kano.otf');
 }
 
 .btn {
 	margin: 3px;
+}
+
+.animalText {
+	color: #161505;
+	margin-bottom: 0;
+	font-size: 18px;
 }
 
 h5 {
@@ -28,4 +40,34 @@ h5 {
 	.gifDiv {
 		max-height: 100%;
 	}
+}
+
+.jumbotron h1 {
+	text-shadow: 1px 2px #161505;
+	font-family: 'Kano';
+	color: #b58900;
+	line-height: 40px
+	margin-top: 5px;
+}
+
+.giphtastic {
+	margin: 0 auto;
+}
+
+.form-control {
+	background-color: #161505;
+	font-size: 20px;
+}
+
+label {
+	color: #C99800;
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+.addAnimal {
+	background-color: #161505;
+	border-color: #161505;
+	color: #C99800;
+	font-weight: bold;
 }
