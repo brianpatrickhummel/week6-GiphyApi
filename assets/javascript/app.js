@@ -31,9 +31,9 @@ $(document).on("click",'.animal',function() {
 			var rating = response.data[j].rating;
 			var gifDiv = $('<div class="col-md-4 gifDiv">');
 			$('.loadGifs').append(gifDiv);
-			var ratingsAdd = $('<h5 class=row >Rating: ' + rating + '</h5>');
+			var ratingsAdd = $('<h5>Rating: ' + rating + '</h5>');
 			$(gifDiv).append(ratingsAdd);
-			var gifsToAdd = $('<img class=row >').attr({"src":stillSource, "data-still":stillSource, "data-animate":animatedSource, "data-state":"still"}).addClass("gifs");
+			var gifsToAdd = $('<img>').attr({"src":stillSource, "data-still":stillSource, "data-animate":animatedSource, "data-state":"still"}).addClass("gifs");
 			$(gifDiv).append(gifsToAdd);
 		}
 	});
