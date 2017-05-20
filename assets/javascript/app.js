@@ -20,7 +20,7 @@ function loadButtons () {
 $(document).on("click",'.animal',function() {
 	$('.loadGifs').empty();
 	var searchTerm = $(this).attr("data-name");
-	var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=9&q=" + searchTerm;
+	var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=9&q=" + searchTerm;
 	$.ajax({
 	url: queryURL,
 	method: "GET"
@@ -68,6 +68,8 @@ $('.addAnimal').on("click", function(event) {
 
 
 
-// ------------------------------Main Process----------------
+// --------------------Main Process----------------
 
 loadButtons();
+
+// ---------------------END--------------
